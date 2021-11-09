@@ -12,10 +12,9 @@ const Greeting = () => {
 
   return (
     <>
-      <h1>
+      <h3>
         <i>{greeting}</i>
-        !!
-      </h1>
+      </h3>
     </>
   );
 };
