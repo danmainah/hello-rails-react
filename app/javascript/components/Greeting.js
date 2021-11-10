@@ -12,7 +12,9 @@ export default function Greeting () {
    console.log(greeting);
     return (
       <React.Fragment>
-      Greetings: {greeting.greetings}
+        <h1>
+          Greetings: {greeting.greetings}
+        </h1>
     </React.Fragment>
     )
    
