@@ -1,32 +1,31 @@
-import apiGreetings from "./Api";
+const GET_GREATING = 'hello-rails-react/greeting/GET_GREATING';
 
-const GET_GREETINGS = 'hello-rails-react/greetings/GET_GREETINGS';
+const initialValue = {};
 
-const initialState = {};
-
-const getGreetings = (payload) => ({
-  type: GET_GREETINGS,
+const getGreeting = (payload) => ({
+  type: GET_GREATING,
   payload,
 });
 
-export const getGreetingsSuccess = () => async (dispatch) => {
-  const greetings = await apiGreetings();
-
-  if (greetings) {
-    dispatch(getGreetings(greetings));
+const getGreetingThunk = () => async (dispatch) => {
+    const request = await fetch('v1/greetings');
+    const response = await request.json();
+    const data = await response.greeting;
+  if (data) {
+    dispatch(getGreeting(data.message));
   }
 };
 
-const greetingsReducer = (state = initialState, action) => {
+const greetingReducer = (state = initialValue, action) => {
   switch (action.type) {
-    case GET_GREETINGS:
+    case GET_GREATING:
       return {
         ...state,
-        message: action.payload
+        greetings: action.payload,
       };
     default:
       return state;
   }
 };
 
-export default greetingsReducer;
+export { greetingReducer, getGreetingThunk };

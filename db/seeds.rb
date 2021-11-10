@@ -12,3 +12,5 @@ Greeting.create(message:'Habari')
 Greeting.create(message:'Wimwega')
 Greeting.create(message:'Nihao')
 Greeting.create(message:'Guten Tag')
+
+puts "Seeding done."
