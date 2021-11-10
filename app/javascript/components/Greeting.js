@@ -9,7 +9,6 @@ export default function Greeting () {
       
     }, [dispatch])
     const greeting = useSelector(state => state.greetingReducer)
-   console.log(greeting);
     return (
       <React.Fragment>
         <h1>
