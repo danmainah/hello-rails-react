@@ -1,11 +1,6 @@
-const GET_GREETINGS = 'GET_GREETINGS';
+import apiGreetings from "./Api";
 
-const apiGreetings = async () => {
-    const request = await fetch('api/greetings.json');
-    const response = await request.json();
-    const greeting = await response.message;
-    return greeting;
-  };
+const GET_GREETINGS = 'hello-rails-react/greetings/GET_GREETINGS';
 
 const initialState = {};
 
